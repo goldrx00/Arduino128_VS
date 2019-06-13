@@ -1,8 +1,6 @@
-﻿#include <avr/interrupt.h>
-#include <avr/io.h>
-#include <MsTimer2.h>
-#include <IRremote.h>
+﻿#include <MsTimer2.h>
 #include <avr/wdt.h> //watchdog timeout
+#include <IRremote.h>
 
 IRrecv irrecv(20); //IRrecv 객체속성
 IRsend irsend;
@@ -15,6 +13,15 @@ const byte led_D1 = 41;
 const byte led_D2 = 42;
 const byte led_D3 = 43;
 const byte led_D4 = 44;
+
+//Atmega128 아두이노 핀번호
+const byte PA[8] = { 44, 43, 42, 41, 40, 39, 38, 37 };
+const byte PB[8] = { 8, 9, 10, 11, 12, 13, 14, 15 };
+const byte PC[8] = { 28, 29, 30, 31, 32, 33, 34, 35 };
+const byte PD[8] = { 18, 19, 20, 21, 22, 23, 24, 25 };
+const byte PE[8] = { 0, 1, 2, 3, 4, 5, 6, 7 };
+const byte PF[8] = { 45, 46, 47, 48, 49, 50, 51, 52 };
+const byte PG[5] = { 26, 27, 36, 16, 17, };
 
 volatile int timer3_counter; //타이머3 카운터
 volatile bool led_D1_state, led_D2_state, led_D3_state, led_D4_state = HIGH; //LED 상태 나타내는 변수
@@ -40,6 +47,7 @@ void setup()
 	Serial.println("아두이노 시작");
 }
 
+int testNum = 0;
 unsigned long previousMillis = 0; //이전시간
 const long delayTime = 5000; //5초 대기시간
 boolean ledState = false; //LED 현재상태
@@ -52,7 +60,9 @@ void loop()
 		previousMillis = currentMillis; //1초가 지나 참임으로 1초 지난 현재시간을 이전시간에 저장
 		ledState = !ledState;   
 		digitalWrite(led_D2, ledState);  
-		Serial.println("Test");
+		Serial.print("Test ");
+		Serial.println(testNum++);
+	
 		//Serial.println("문장:" + str);  
 	}
 
@@ -62,15 +72,15 @@ void loop()
 		irsend.sendNEC(0x22AE7A2A, 32);
 		delay(40);
 	  }
-		for (int i = 0; i < 3; i++)
-	  {
-		irsend.sendNEC(0xFDAC0150, 32);
-		delay(40);
-	  }
-	  */
+	//	for (int i = 0; i < 3; i++)
+	 // {
+	//	irsend.sendNEC(0xFDAC0150, 32);
+	//	delay(40);
+	//  }
+	  // */
 
 	  //  ir리시버
-//   /*
+   ///*
 	if (irrecv.decode(&IR_signals))
 	{
 		Serial.println(IR_signals.value, HEX); //16진수로 출력     
@@ -78,8 +88,10 @@ void loop()
 		irrecv.resume(); //다음 신호를 받을 수 있게     
 	}
 //*/
+
+
 	delay(10);
-	//delay(3000); 
+	//delay(1000); 
 }
 
 void kit_init()
@@ -143,6 +155,7 @@ ISR(TIMER3_OVF_vect)        // 타이머3 오버플로우 벡터 1초마다 작�
 	led_D3_state = !led_D3_state;
 	digitalWrite(led_D3, led_D3_state);	
 }
+
 
 volatile unsigned int x, y = 0; //volatile 변수 최적화하지 않음.
 volatile unsigned int ss, mm = 0;
