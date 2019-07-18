@@ -1,4 +1,4 @@
-// 128_vs.ino 테스트
+// 128_vs.ino 깃허브 에러 테스트
 
 
 #include <MsTimer2.h> // timer2 를 사용함.
@@ -291,3 +291,5 @@ void WatchUpload() //업로드를 하는지 감시해서 리셋
 	}
 
 }
+
+//깃허브  에러 테스트
