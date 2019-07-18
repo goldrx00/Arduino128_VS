@@ -3,11 +3,12 @@
 
 #include <MsTimer2.h> // timer2 를 사용함.
 #include <avr/wdt.h> //watchdog timeout
+#include <LiquidCrystal_I2C.h>
+#include <Wire.h>
 #include "LongIrSignalRecv.h"
 #include "IRrecvDumpV2.h"
 #include "IRremote_fix/IRremote.h" //irsend에 timer3을 사용하기 위해 따로 만듦
-#include <LiquidCrystal_I2C.h>
-#include <Wire.h>
+// 순서 바꿨다
 
 LiquidCrystal_I2C lcd(0x27, 16, 2); //I2C lcd 객체
 
