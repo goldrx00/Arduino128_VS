@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\IRremote_fix">
+      <UniqueIdentifier>{18ffcbb5-c030-4d3f-a23b-e76e8c8010a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="Arduino128_VS.ino" />
@@ -21,5 +24,97 @@
     <ClInclude Include="__vm\.Arduino128_VS.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IRrecvDumpV2.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LongIrSignalRecv.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IRremote_fix\boarddefs.h">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClInclude>
+    <ClInclude Include="IRremote_fix\ir_Lego_PF_BitStreamEncoder.h">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClInclude>
+    <ClInclude Include="IRremote_fix\IRremote.h">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClInclude>
+    <ClInclude Include="IRremote_fix\IRremoteInt.h">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="IRrecvDumpV2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LongIrSignalRecv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\esp32.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_Aiwa.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_Denon.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_Dish.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_JVC.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_Lego_PF.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_LG.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_Mitsubishi.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_NEC.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_Panasonic.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_RC5_RC6.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_Samsung.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_Sanyo.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_Sharp.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_Sony.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_Template.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\ir_Whynter.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\irPronto.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\irRecv.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\IRremote.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\irSend.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
+    <ClCompile Include="IRremote_fix\sam.cpp">
+      <Filter>Source Files\IRremote_fix</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

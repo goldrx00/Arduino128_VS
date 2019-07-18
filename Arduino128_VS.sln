@@ -5,7 +5,21 @@ VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Arduino128_VS", "Arduino128_VS.vcxproj", "{C5F80730-F44F-4478-BDAE-6634EFC2CA88}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LiquidCrystal-I2C-library-master", "..\..\..\Documents\Arduino\libraries\LiquidCrystal-I2C-library-master\LiquidCrystal-I2C-library-master.vcxitems", "{B922303B-B104-4683-A2CF-208823C77348}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MsTimer2", "..\..\..\Documents\Arduino\libraries\MsTimer2\MsTimer2.vcxitems", "{FCF7C180-D7C1-4955-8B71-FE912D0491CF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Wire", "..\..\..\AppData\Local\arduino15\packages\MegaCore\hardware\avr\2.0.2\libraries\Wire\Wire.vcxitems", "{B4FDBBA4-E13C-4B80-B5CC-93FF271E0412}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		..\..\..\AppData\Local\arduino15\packages\MegaCore\hardware\avr\2.0.2\libraries\Wire\Wire.vcxitems*{b4fdbba4-e13c-4b80-b5cc-93ff271e0412}*SharedItemsImports = 9
+		..\..\..\Documents\Arduino\libraries\LiquidCrystal-I2C-library-master\LiquidCrystal-I2C-library-master.vcxitems*{b922303b-b104-4683-a2cf-208823c77348}*SharedItemsImports = 9
+		..\..\..\AppData\Local\arduino15\packages\MegaCore\hardware\avr\2.0.2\libraries\Wire\Wire.vcxitems*{c5f80730-f44f-4478-bdae-6634efc2ca88}*SharedItemsImports = 4
+		..\..\..\Documents\Arduino\libraries\LiquidCrystal-I2C-library-master\LiquidCrystal-I2C-library-master.vcxitems*{c5f80730-f44f-4478-bdae-6634efc2ca88}*SharedItemsImports = 4
+		..\..\..\Documents\Arduino\libraries\MsTimer2\MsTimer2.vcxitems*{c5f80730-f44f-4478-bdae-6634efc2ca88}*SharedItemsImports = 4
+		..\..\..\Documents\Arduino\libraries\MsTimer2\MsTimer2.vcxitems*{fcf7c180-d7c1-4955-8b71-fe912d0491cf}*SharedItemsImports = 9
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
