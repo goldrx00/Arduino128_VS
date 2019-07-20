@@ -12,7 +12,7 @@
 
 #endif
 
-#include "IRremote_fix/IRremote.h"
+#include "src/IRremote_fix/IRremote.h"
 
 //cpp파일의 함수들을 여기서 선언해야 함.
 void  dumpInfo(decode_results* results);

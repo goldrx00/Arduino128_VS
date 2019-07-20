@@ -116,38 +116,38 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IRrecvDumpV2.h" />
-    <ClInclude Include="IRremote_fix\boarddefs.h" />
-    <ClInclude Include="IRremote_fix\IRremote.h" />
-    <ClInclude Include="IRremote_fix\IRremoteInt.h" />
-    <ClInclude Include="IRremote_fix\ir_Lego_PF_BitStreamEncoder.h" />
     <ClInclude Include="LongIrSignalRecv.h" />
+    <ClInclude Include="src\IRremote_fix\boarddefs.h" />
+    <ClInclude Include="src\IRremote_fix\IRremote.h" />
+    <ClInclude Include="src\IRremote_fix\IRremoteInt.h" />
+    <ClInclude Include="src\IRremote_fix\ir_Lego_PF_BitStreamEncoder.h" />
     <ClInclude Include="__vm\.Arduino128_VS.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IRrecvDumpV2.cpp" />
-    <ClCompile Include="IRremote_fix\esp32.cpp" />
-    <ClCompile Include="IRremote_fix\irPronto.cpp" />
-    <ClCompile Include="IRremote_fix\irRecv.cpp" />
-    <ClCompile Include="IRremote_fix\IRremote.cpp" />
-    <ClCompile Include="IRremote_fix\irSend.cpp" />
-    <ClCompile Include="IRremote_fix\ir_Aiwa.cpp" />
-    <ClCompile Include="IRremote_fix\ir_Denon.cpp" />
-    <ClCompile Include="IRremote_fix\ir_Dish.cpp" />
-    <ClCompile Include="IRremote_fix\ir_JVC.cpp" />
-    <ClCompile Include="IRremote_fix\ir_Lego_PF.cpp" />
-    <ClCompile Include="IRremote_fix\ir_LG.cpp" />
-    <ClCompile Include="IRremote_fix\ir_Mitsubishi.cpp" />
-    <ClCompile Include="IRremote_fix\ir_NEC.cpp" />
-    <ClCompile Include="IRremote_fix\ir_Panasonic.cpp" />
-    <ClCompile Include="IRremote_fix\ir_RC5_RC6.cpp" />
-    <ClCompile Include="IRremote_fix\ir_Samsung.cpp" />
-    <ClCompile Include="IRremote_fix\ir_Sanyo.cpp" />
-    <ClCompile Include="IRremote_fix\ir_Sharp.cpp" />
-    <ClCompile Include="IRremote_fix\ir_Sony.cpp" />
-    <ClCompile Include="IRremote_fix\ir_Template.cpp" />
-    <ClCompile Include="IRremote_fix\ir_Whynter.cpp" />
-    <ClCompile Include="IRremote_fix\sam.cpp" />
     <ClCompile Include="LongIrSignalRecv.cpp" />
+    <ClCompile Include="src\IRremote_fix\esp32.cpp" />
+    <ClCompile Include="src\IRremote_fix\irPronto.cpp" />
+    <ClCompile Include="src\IRremote_fix\irRecv.cpp" />
+    <ClCompile Include="src\IRremote_fix\IRremote.cpp" />
+    <ClCompile Include="src\IRremote_fix\irSend.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_Aiwa.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_Denon.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_Dish.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_JVC.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_Lego_PF.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_LG.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_Mitsubishi.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_NEC.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_Panasonic.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_RC5_RC6.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_Samsung.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_Sanyo.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_Sharp.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_Sony.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_Template.cpp" />
+    <ClCompile Include="src\IRremote_fix\ir_Whynter.cpp" />
+    <ClCompile Include="src\IRremote_fix\sam.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

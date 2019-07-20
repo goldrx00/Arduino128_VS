@@ -1,21 +1,20 @@
-// 128_vs.ino 깃허브 에러 테스트
+﻿//Arduino128_VS.ino
 
-
-#include <MsTimer2.h> // timer2 를 사용함.
+#include <Arduino.h>	//PIO에서는 Arduino.h 인클루드 해야함.
+#include <MsTimer2.h> // timer2 를 사용함. 변경
 #include <avr/wdt.h> //watchdog timeout
-#include <LiquidCrystal_I2C.h>
 #include <Wire.h>
+#include <LiquidCrystal_I2C.h>
+#include "src/IRremote_fix/IRremote.h" //irsend에 timer3을 사용하기 위해 따로 만듦
 #include "LongIrSignalRecv.h"
 #include "IRrecvDumpV2.h"
-#include "IRremote_fix/IRremote.h" //irsend에 timer3을 사용하기 위해 따로 만듦
-// 순서 바꿨다
-
-LiquidCrystal_I2C lcd(0x27, 16, 2); //I2C lcd 객체
 
 IRrecv irrecv(20); //IRrecv 객체속성
 IRsend irsend;	//PE3 사용
 
-volatile bool irrecv_mode = 1; //ir리시브 모드 바꾸기
+LiquidCrystal_I2C led(0x27, 16, 2); //I2C lcd 객체
+
+volatile bool irrecv_mode = 0; //ir리시브 모드 바꾸기
 
 const long BaudRate = 9600;
 //115200;
@@ -55,6 +54,7 @@ void setup()
 	lcd_init();	//lcd 설정
 
 	irrecv.enableIRIn(); // ir리시버 시작
+	irrecv_mode = 0;
 
 	Serial.begin(BaudRate); //시리얼 통신 시작
 	Serial.println("atmega128 아두이노 실행");
@@ -71,22 +71,22 @@ void loop()
 	if (currentMillis - previousMillis >= delayTime)  //1000 = 1초 시간이 흘렀는지 체크
 	{
 		previousMillis = currentMillis; //1초가 지나 참임으로 1초 지난 현재시간을 이전시간에 저장
-		ledState = !ledState;   
-		digitalWrite(led_D2, ledState);  
+		ledState = !ledState;
+		digitalWrite(led_D2, ledState);
 		Serial.print("Test ");
 		Serial.println(testNum++);
-	
-		//Serial.println("문장:" + str);  
-	}		
+
+		//Serial.println("문장:" + str);
+	}
 
 	//  ir리시버
-	if(irrecv_mode == 0)
+	if (irrecv_mode == 0)
 	{
 		decode_results  results;        // Somewhere to store the results
 
 		if (irrecv.decode(&results)) {  // Grab an IR code
-		//Serial.println(results.value, HEX); //16진수로 출력     
-		//Serial.println(results.bits, DEC);  //송신 데이터의 길이 10진수로 출력   
+		//Serial.println(results.value, HEX); //16진수로 출력
+		//Serial.println(results.bits, DEC);  //송신 데이터의 길이 10진수로 출력
 		//dumpInfo(&results);           // Output the results
 		//dumpRaw(&results);            // Output the results in RAW format
 			dumpCode(&results);           // Output the results as source code
@@ -97,8 +97,8 @@ void loop()
 	else
 	{
 		longIrSignalRecv(); //긴 ir신호 받는 모드
-	}	
-	
+	}
+
 	/*
 	lcd.setCursor(5, 1);
 	lcd.print("ABC");
@@ -106,20 +106,20 @@ void loop()
 	lcd.setCursor(5, 1);
 	lcd.print("CBA");
 	delay_ms(3000);
-	//*/	
-	delay_ms(10);	
-	//delay_ms(1000); 
+	//*/
+	delay_ms(10);
+	//delay_ms(1000);
 }
 
 void delay_ms(int nn) //딜레이할 때 다른 인터럽트 가능
 {
 	unsigned long previousMillis_1 = millis();
-	unsigned long currentMillis_1 = millis();	
+	unsigned long currentMillis_1 = millis();
 	while (currentMillis_1 - previousMillis_1 < nn)
-	{		
+	{
 		currentMillis_1 = millis();
 		delay(1);
-	}		
+	}
 }
 
 void kit_init()
@@ -136,15 +136,15 @@ void kit_init()
 	digitalWrite(led_D1, HIGH);
 
 	DDRB = 0xFF;  //7segment
-	DDRC = 0xF;   //7segment 자릿수 on:1 off:0  
-	}
+	DDRC = 0xF;   //7segment 자릿수 on:1 off:0
+}
 
 void lcd_init()
 {
-	lcd.begin();
-	lcd.backlight();
-	lcd.clear();
-	lcd.print("Hello, world!");
+	//lcd.begin();
+	//lcd.backlight();
+	//lcd.clear();
+	//lcd.print("Hello, world!");
 }
 
 void switch_init() {
@@ -163,7 +163,7 @@ void switchU3()
 }
 
 void switchU4()
-{	
+{
 	irrecv_mode = !irrecv_mode;
 	if (irrecv_mode == 0)
 	{
@@ -189,7 +189,7 @@ void timer_init()
 	timer1_counter = 3036; // preload timer 65536-16MHz/256/1Hz
 	TCNT1 = timer1_counter;   // preload timer
 	//TCCR3B |= (1 << CS32);    // 256 prescaler
-	TIMSK |= (1 << TOIE1);   // enable timer overflow interrupt  
+	TIMSK |= (1 << TOIE1);   // enable timer overflow interrupt
 	interrupts();
 
 }
@@ -198,7 +198,7 @@ ISR(TIMER1_OVF_vect)        // 타이머1 오버플로우 벡터 1초마다 작�
 {
 	TCNT1 = timer1_counter;   // preload timer
 	led_D3_state = !led_D3_state;
-	digitalWrite(led_D3, led_D3_state);	
+	digitalWrite(led_D3, led_D3_state);
 }
 
 
@@ -210,7 +210,7 @@ void msTimer() //타이머0 함수 1ms마다
 	y++;
 	if (x > 1000)      //x가 1000이면 1ms*1000=1�?
 	{
-		x = 0; 
+		x = 0;
 		ss++;
 		if (ss > 59)
 		{
@@ -292,5 +292,3 @@ void WatchUpload() //업로드를 하는지 감시해서 리셋
 	}
 
 }
-
-//깃허브  에러 테스트
