@@ -1,5 +1,5 @@
 ﻿//Arduino128_VS.ino
-//깃허브 
+//깃허브 ㅗ
 
 #include <Arduino.h>	//PIO에서는 Arduino.h 인클루드 해야함.
 #include <MsTimer2.h> // timer2 를 사용함. 변경
